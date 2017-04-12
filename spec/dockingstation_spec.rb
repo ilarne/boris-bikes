@@ -10,6 +10,6 @@ describe DockingStation.new.release_bike do
   it { is_expected.to be_a Bike}
 
   it 'releasing bike raises an error' do
-    expect {raise StandardError}.to raise_error
+    expect {(:release_bike)}.to raise_error
   end
 end
