@@ -1,5 +1,9 @@
 class DockingStation
-  def self.release_bike
-    "Bike released yay"
+  def release_bike
+  end
+end
+
+class Bike
+  def working?
   end
 end
