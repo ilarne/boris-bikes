@@ -1,9 +1,13 @@
+
+DEFAULT_CAPACITY = 20
+
 class DockingStation
 
   attr_reader :bike_inventory
 
   def initialize
     @bike_inventory = []
+
   end
 
   def release_bike
@@ -15,15 +19,15 @@ class DockingStation
 
   def dock(bike)
     if self.full? == true
-      fail("the inventory is full with 20 bikes")
+      fail("the inventory is full with DEFAULT_CAPACITY bikes")
     else
       @bike_inventory << bike
     end
   end
 
-private
+#private
   def full?
-    if @bike_inventory.length > 20
+    if @bike_inventory.length >= DEFAULT_CAPACITY
       true
     else
       false

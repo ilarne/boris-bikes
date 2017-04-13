@@ -11,13 +11,13 @@ describe DockingStation do
     expect{subject.release_bike}.to raise_error("this is our error for no bikes")
   end
 
-  it 'returns error when the docking station accepts bike #20' do
-    20.times { subject.dock(Bike.new) }
-    expect{ subject.dock(Bike.new) }.to raise_error("the inventory is full with 20 bikes")
+  it "returns error when the docking station accepts bike DEFAULT_CAPACITY" do
+    ::DEFAULT_CAPACITY.times { subject.dock(Bike.new) }
+    expect{ subject.dock(Bike.new) }.to raise_error("the inventory is full with DEFAULT_CAPACITY bikes")
   end
 
   it "returns true if bike inventory is full" do
-    20.times { subject.dock(Bike.new) }
+    ::DEFAULT_CAPACITY.times { subject.dock(Bike.new) }
     expect(subject.full?).to be true
   end
 
