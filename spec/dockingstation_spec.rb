@@ -16,6 +16,11 @@ describe DockingStation do
     expect{ subject.dock(Bike.new) }.to raise_error("the inventory is full with 20 bikes")
   end
 
+  it "returns true if bike inventory is full" do
+    20.times { subject.dock(Bike.new) }
+    expect(subject.full?).to be true
+  end
+
   it 'expects dock to keep bike' do
     subject.dock(Bike.new)
     expect(subject.bike_inventory).not_to be_nil
